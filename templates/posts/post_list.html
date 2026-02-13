@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post list page</title>
+</head>
+<body>
+    <h3>post list page</h3>
+    <h4>{{ post.title }}</h4>
+    <p>{{ post.content }}</p>
+    <img src="{{ post.images.first.image.url }}" alt="{{ post.title }}" width="600">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
