@@ -1,6 +1,11 @@
 from django.urls import path
-from posts.views import post_list
+from posts.views import post_list, add_post, del_post, update_post, add_comment, del_comment
 
 urlpatterns = [
-    path('', post_list)
+    path('', post_list, name='post_list'),
+    path('add_post/', add_post, name='add_post'),
+    path('del_post/<int:id>/', del_post, name='del_post'),
+    path('update_post/<int:id>/', update_post, name='update_post'),
+    path('add_comment/<int:id>/', add_comment, name='add_comment'),
+    path('del_comment/<int:id>/', del_comment, name='del_comment'),
 ]

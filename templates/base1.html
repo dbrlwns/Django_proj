@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            hello, {{ user.username }}
+            <a href="{% url 'user_logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'user_login' %}">Login</a>
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

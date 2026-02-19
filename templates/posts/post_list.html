@@ -1,19 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post list page</title>
-</head>
-<body>
-    <h3>post list page</h3>
-    <h4>{{ post.title }}</h4>
-    <p>{{ post.content }}</p>
-    <img src="{{ post.images.first.image.url }}" alt="{{ post.title }}" width="600">
+{% extends 'base1.html' %}
 
-    <form method="POST" enctype="multipart/form-data">
+{% block content %}
+    <h3>posts list page</h3>
+    <!-------------- post 등록/수정 영역 ---------------->
+    {% if images %}
+        게시글 수정
+    {% else %}
+        게시글 작성
+    {% endif %}
+    <div style="border: 1px solid black">
+    <form method="POST" action="
+        {% if update %}/update_post/{{ post.id }}/{% else %}/add_post/{% endif %}
+        " enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <input type="file" name="images" multiple>
         <input type="submit" value="Submit">
+
+        {% for image in images %}
+        <img src="{{ image.image.url }}" width="200" alt="{{ image.name }}" />
+        <input type="checkbox" name="delete_images" value="{{ image.id }}" />
+        {% endfor %}
+
     </form>
-</body>
-</html>
+    </div>
+    <hr /><hr />
+    <!-------------- post 등록/수정 영역 끝 ---------------->
+
+
+    <!-------------- post 표시 영역 ---------------->
+    {% for post in posts %}
+    <div style="border: 1px solid black;">
+        <h4>{{ post.title }}</h4> <small>user: {{ post.author }}</small>
+        <p>{{ post.content }}</p>
+        {% if post.images.first.image %}
+            {% for image in post.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ post.title }}" width="400">
+            {% endfor %}
+        {% else %}
+            <p style="color: lightgray">No images</p>
+        {% endif %}
+        {% if request.user == post.author %}
+            <form method="POST" action="del_post/{{ post.id }}/">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+            </form>
+            <form method="POST" action="update_post/{{ post.id }}/">
+            {% csrf_token %}
+            <input type="submit" value="Update">
+            </form>
+
+        {% endif %}
+
+        <div class="comment">
+            <form method="POST" action="add_comment/{{ post.id }}/">
+                {% csrf_token %}
+                <label><input type="text" name="comment_content" placeholder="write comment" /></label>
+                <input type="submit" value="Submit">
+            </form>
+            <ul>
+            {% for comment in post.comments.all %}
+                <li>
+                    <p>{{ comment.author }} - {{ comment.content }}</p>
+                {% if comment.author == request.user %}
+                    <form method="POST" action="del_comment/{{ comment.id }}/">
+                    {% csrf_token %}
+                    <input type="submit" value="Del">
+                    </form>
+                {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+    <!-------------- post 영역 끝 ---------------->
+{% endblock %}
