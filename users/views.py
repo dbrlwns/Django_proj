@@ -4,7 +4,9 @@ from django.shortcuts import render, redirect
 
 from users.forms import RegisterForm
 from users.models import User
+import logging
 
+logger = logging.getLogger("auth")
 
 # Create your views here.
 def user_login(request):
@@ -16,6 +18,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            logger.info(f"{request.user} LOGIN")
             return redirect('/')
         else:
             error(request, 'Invalid username or password.')
@@ -24,6 +27,7 @@ def user_login(request):
 
 def user_logout(request):
     if request.user.is_authenticated:
+        logger.info(f"{request.user} LOGOUT")
         logout(request)
         return redirect('/')
     return redirect('/')
@@ -36,6 +40,7 @@ def user_register(request):
     print(request.POST or None)
     if request.method == "POST" and form.is_valid():
         form.save()
+        logger.info(f"{request.user} REGISTERED")
         return redirect('/user/')
     return render(request, 'users/register.html',
                   {'form': form})

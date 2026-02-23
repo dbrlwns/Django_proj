@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 
@@ -14,8 +15,9 @@ class Post(models.Model):
 class PostImage(models.Model):
     # Post.images 로 접근가능
     post = models.ForeignKey('posts.Post', on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='postImages/')
-
+    image = models.ImageField(upload_to='postImages/',
+                              validators=[FileExtensionValidator(['jpg', 'png', 'jpeg', 'webp', 'gif'])])
+    # 이미지 확장자 검증 추가
 
 class Comment(models.Model):
     # Post.comments 로 접근가능

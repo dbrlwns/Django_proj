@@ -17,6 +17,53 @@ AUTH_USER_MODEL = 'users.User'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+      "custom": {
+        "format": "%(levelname)-4s %(asctime)s %(name)-5s %(message)s ",
+        "style": "%",
+      }
+    },
+    "handlers": {
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "custom",
+        },
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR / "debug.log",
+            "formatter": "custom",
+        },
+        "db": {
+          "level": "INFO",
+           "class" : "logs.handlers.LogHandler",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file", "db"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        "auth": {
+            "handlers": ["console", "db"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "post": {
+            "handlers": ["console", "db"],
+            "level": "INFO",
+            "propagate": False,
+        }
+    },
+}
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -35,6 +82,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'logs',
     'users',
     'posts',
     'django.contrib.admin',
