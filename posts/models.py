@@ -12,12 +12,16 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.id} - {self.title}'
 
+
+
 class PostImage(models.Model):
     # Post.images 로 접근가능
     post = models.ForeignKey('posts.Post', on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='postImages/',
                               validators=[FileExtensionValidator(['jpg', 'png', 'jpeg', 'webp', 'gif'])])
     # 이미지 확장자 검증 추가
+
+
 
 class Comment(models.Model):
     # Post.comments 로 접근가능
@@ -28,5 +32,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.id}:{self.author} - {self.content}'
+
+    class Meta:
+        ordering = ['-date_posted']
 
 

@@ -37,11 +37,9 @@ def user_register(request):
         return redirect('/')
 
     form = RegisterForm(request.POST or None)
-    print(request.POST or None)
     if request.method == "POST" and form.is_valid():
         form.save()
         logger.info(f"{request.user} REGISTERED")
         return redirect('/user/')
     return render(request, 'users/register.html',
                   {'form': form})
-

@@ -228,3 +228,649 @@ Traceback (most recent call last):
               ~~~~~~~~~~~~~~~^^^^^
 TypeError: 'datetime.datetime' object is not subscriptable
 ERROR 2026-02-22 20:09:21,174 django.server "GET /admin/logs/log/ HTTP/1.1" 500 362470 
+WARNING 2026-02-23 11:47:54,174 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 11:47:54,182 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+WARNING 2026-02-23 11:47:56,017 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 11:47:56,025 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+WARNING 2026-02-23 11:47:56,783 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 11:47:56,786 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+WARNING 2026-02-23 11:54:49,093 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 11:54:49,098 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+WARNING 2026-02-23 11:54:50,076 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 11:54:50,095 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 20:34:23,994 django.request Not Found: /update_post/1/update_post/1/ 
+WARNING 2026-02-23 20:34:23,999 django.server "POST /update_post/1/update_post/1/ HTTP/1.1" 404 4209 
+ERROR 2026-02-23 21:25:38,486 django.request Internal Server Error: /update_post/1/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 577, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 62, in update_post
+    return render(request, 'posts/post_list.html',
+                  {'form': form, 'images': images, 'posts': posts, 'update': True, 'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 585, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 585, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 579, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 634, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Template: /Users/yoo/PycharmProjects/DjangoProject1/templates/posts/post_list.html, Invalid block tag on line 97: 'endif', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2026-02-23 21:25:38,494 django.server "POST /update_post/1/ HTTP/1.1" 500 216527 
+WARNING 2026-02-23 21:31:14,515 django.request Not Found: /update_post/1/update_post/1/ 
+WARNING 2026-02-23 21:31:14,521 django.server "POST /update_post/1/update_post/1/ HTTP/1.1" 404 4209 
+WARNING 2026-02-23 21:39:41,337 django.request Not Found: /... 
+WARNING 2026-02-23 21:39:41,343 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 21:46:47,003 django.request Not Found: /... 
+WARNING 2026-02-23 21:46:47,007 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 21:53:44,932 django.request Not Found: /... 
+WARNING 2026-02-23 21:53:44,934 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 21:53:45,120 django.request Not Found: /... 
+WARNING 2026-02-23 21:53:45,122 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 21:53:45,350 django.request Not Found: /... 
+WARNING 2026-02-23 21:53:45,351 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 21:59:03,896 django.request Not Found: /... 
+WARNING 2026-02-23 21:59:03,897 django.server "GET /... HTTP/1.1" 404 4133 
+WARNING 2026-02-23 22:29:23,984 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 22:29:23,988 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+WARNING 2026-02-23 22:57:11,166 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-23 22:57:11,173 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268 
+ERROR 2026-02-23 23:18:12,972 django.request Internal Server Error: / 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 70, in post_list
+    return render(
+        request,
+        'posts/post_list.html',
+        {'posts': posts, 'form': form}
+    )
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_register' not found. 'user_register' is not a valid view function or pattern name.
+ERROR 2026-02-23 23:18:12,979 django.server "GET / HTTP/1.1" 500 149469 
+WARNING 2026-02-23 23:19:10,178 django.request Not Found: /user// 
+WARNING 2026-02-23 23:19:10,182 django.server "POST /user// HTTP/1.1" 404 4777 
+WARNING 2026-02-23 23:19:11,498 django.request Not Found: /user// 
+WARNING 2026-02-23 23:19:11,501 django.server "GET /user// HTTP/1.1" 404 4776 
+WARNING 2026-02-23 23:19:13,264 django.request Not Found: /user// 
+WARNING 2026-02-23 23:19:13,268 django.server "GET /user// HTTP/1.1" 404 4776 
+WARNING 2026-02-23 23:19:16,771 django.request Not Found: /user// 
+WARNING 2026-02-23 23:19:16,776 django.server "GET /user// HTTP/1.1" 404 4776 
+ERROR 2026-02-23 23:22:39,756 django.request Internal Server Error: /detail/14/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: post_detail.html
+ERROR 2026-02-23 23:22:39,761 django.server "GET /detail/14/ HTTP/1.1" 500 79018 
+ERROR 2026-02-23 23:22:46,896 django.request Internal Server Error: /detail/14/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: post_detail.html
+ERROR 2026-02-23 23:22:46,900 django.server "GET /detail/14/ HTTP/1.1" 500 79018 
+ERROR 2026-02-24 14:20:10,773 django.request Internal Server Error: /detail/16/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'posts/post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 201, in render
+    values = list(values)
+TypeError: 'RelatedManager' object is not iterable
+ERROR 2026-02-24 14:20:10,780 django.server "GET /detail/16/ HTTP/1.1" 500 134576 
+ERROR 2026-02-24 14:20:46,605 django.request Internal Server Error: /detail/1/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'posts/post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 201, in render
+    values = list(values)
+TypeError: 'Comment' object is not iterable
+ERROR 2026-02-24 14:20:46,612 django.server "GET /detail/1/ HTTP/1.1" 500 134353 
+WARNING 2026-02-24 14:34:49,195 django.request Not Found: /detail/1/add_comment/1/ 
+WARNING 2026-02-24 14:34:49,204 django.server "POST /detail/1/add_comment/1/ HTTP/1.1" 404 4469 
+WARNING 2026-02-24 14:35:14,023 django.request Not Found: /post/add_comment/1/ 
+WARNING 2026-02-24 14:35:14,027 django.server "POST /post/add_comment/1/ HTTP/1.1" 404 4457 
+WARNING 2026-02-24 14:35:24,099 django.request Not Found: /posts/add_comment/1/ 
+WARNING 2026-02-24 14:35:24,103 django.server "POST /posts/add_comment/1/ HTTP/1.1" 404 4460 
+ERROR 2026-02-24 14:38:05,147 django.request Internal Server Error: /detail/1/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 895, in __init__
+    self.literal = int(var)
+                   ~~~^^^^^
+ValueError: invalid literal for int() with base 10: 'Y-m-d'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 906, in __init__
+    self.literal = mark_safe(unescape_string_literal(var))
+                             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/utils/functional.py", line 231, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/utils/text.py", line 464, in unescape_string_literal
+    raise ValueError("Not a string literal: %r" % s)
+ValueError: Not a string literal: 'Y-m-d'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'posts/post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 585, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 585, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 585, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 556, in parse
+    raise self.error(token, e)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 554, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 770, in __init__
+    args.append((True, Variable(var_arg)))
+                       ~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 919, in __init__
+    raise TemplateSyntaxError(
+        "Invalid character ('%s') in variable name: '%s'" % (c, var)
+    )
+django.template.exceptions.TemplateSyntaxError: Template: /Users/yoo/PycharmProjects/DjangoProject1/templates/posts/post_detail.html, Invalid character ('-') in variable name: 'Y-m-d'
+ERROR 2026-02-24 14:38:05,153 django.server "GET /detail/1/ HTTP/1.1" 500 216192 
+WARNING 2026-02-24 14:55:03,328 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:03,330 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:04,189 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:04,191 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:04,597 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:04,604 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:04,809 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:04,811 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:05,040 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:05,042 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:05,250 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:05,252 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:05,482 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:05,485 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:05,687 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:05,690 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:05,900 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:05,903 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 14:55:06,070 django.request Not Found: /detail/1/url-to-cdn/splide.min.css 
+WARNING 2026-02-24 14:55:06,071 django.server "GET /detail/1/url-to-cdn/splide.min.css HTTP/1.1" 404 4501 
+WARNING 2026-02-24 20:30:11,234 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:30:11,237 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:31:37,075 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:31:37,078 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:31:37,735 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:31:37,738 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:33:38,959 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:33:38,962 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:33:41,272 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:33:41,274 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:34:50,016 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:34:50,019 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:34:58,188 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:34:58,193 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:35:15,981 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:35:15,983 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:40:43,963 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:40:43,982 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:40:57,549 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:40:57,553 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:40:58,763 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:40:58,766 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:41:30,578 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:41:30,584 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:41:31,545 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:41:31,547 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:41:50,976 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:41:50,979 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:45:16,199 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:45:16,204 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:45:18,239 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:45:18,241 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 20:45:19,652 django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json 
+WARNING 2026-02-24 20:45:19,655 django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4543 
+WARNING 2026-02-24 22:50:16,431 django.security.csrf Forbidden (CSRF token from POST incorrect.): /update_post/1/ 
+WARNING 2026-02-24 22:50:16,442 django.server "POST /update_post/1/ HTTP/1.1" 403 2528 
+WARNING 2026-02-25 16:19:37,762 django.request Not Found: /favicon.ico 
+WARNING 2026-02-25 16:19:37,765 django.server "GET /favicon.ico HTTP/1.1" 404 4432 
+WARNING 2026-02-25 16:27:46,899 django.request Method Not Allowed (GET): /del_post/19/ 
+WARNING 2026-02-25 16:27:46,905 django.server "GET /del_post/19/ HTTP/1.1" 405 0 
+WARNING 2026-02-25 16:27:50,585 django.request Method Not Allowed (GET): /del_post/19/ 
+WARNING 2026-02-25 16:27:50,590 django.server "GET /del_post/19/ HTTP/1.1" 405 0 
+WARNING 2026-02-25 16:27:58,566 django.request Method Not Allowed (GET): /del_post/19/ 
+WARNING 2026-02-25 16:27:58,568 django.server "GET /del_post/19/ HTTP/1.1" 405 0 
+WARNING 2026-02-25 16:30:56,007 django.request Method Not Allowed (GET): /del_post/19/ 
+WARNING 2026-02-25 16:30:56,012 django.server "GET /del_post/19/ HTTP/1.1" 405 0 
+ERROR 2026-02-25 16:34:16,988 django.request Internal Server Error: /detail/19/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/posts/views.py", line 95, in post_detail
+    return render(request, 'posts/post_detail.html', {'post': post})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'delete_post' not found. 'delete_post' is not a valid view function or pattern name.
+ERROR 2026-02-25 16:34:16,994 django.server "GET /detail/19/ HTTP/1.1" 500 162973 
+WARNING 2026-02-25 16:34:31,704 django.security.csrf Forbidden (CSRF token missing.): /del_post/19/ 
+WARNING 2026-02-25 16:34:31,708 django.server "POST /del_post/19/ HTTP/1.1" 403 2516 
+ERROR 2026-02-25 16:54:30,419 django.request Internal Server Error: /user/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/users/views.py", line 25, in user_login
+    return render(request, 'users/login.html')
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'posts' not found. 'posts' is not a valid view function or pattern name.
+ERROR 2026-02-25 16:54:30,426 django.server "GET /user/ HTTP/1.1" 500 144467 
+ERROR 2026-02-25 16:56:38,638 django.request Internal Server Error: /user/register/ 
+Traceback (most recent call last):
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/users/views.py", line 45, in user_register
+    return render(request, 'users/register.html',
+                  {'form': form})
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/yoo/PycharmProjects/DjangoProject1/.venv/lib/python3.14/site-packages/django/urls/resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2026-02-25 16:56:38,644 django.server "GET /user/register/ HTTP/1.1" 500 146536 

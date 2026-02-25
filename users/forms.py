@@ -11,6 +11,30 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'phone')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # username
+        self.fields['username'].widget.attrs.update({
+            'class': 'form-control rounded-pill',
+            'placeholder': 'Enter username',
+            'autocomplete': 'new-username',
+            'autofocus': 'autofocus'
+        })
+
+        # password1
+        self.fields['password1'].widget.attrs.update({
+            'autocomplete': 'new-password',
+            'class': 'form-control rounded-pill',
+            'placeholder': 'Enter password'
+        })
+
+        # password2
+        self.fields['password2'].widget.attrs.update({
+            'class': 'form-control rounded-pill',
+            'placeholder': 'Confirm password'
+        })
+
     def clean(self):
         cleaned_data = super().clean()
         password1 = cleaned_data.get('password1')

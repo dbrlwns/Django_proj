@@ -79,7 +79,7 @@ def add_comment(request, id):
     comment = Comment.objects.create(author=request.user, post=post,
                            content=request.POST['comment_content'])
     logger.info(f"Comment-{comment.id} added by {request.user}.")
-    return redirect('/')
+    return redirect(f'/detail/{comment.post.id}/')
 
 @require_POST
 def del_comment(request, id):
@@ -90,6 +90,9 @@ def del_comment(request, id):
     return redirect('/')
 
 
+def post_detail(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'posts/post_detail.html', {'post': post})
 
 
 
