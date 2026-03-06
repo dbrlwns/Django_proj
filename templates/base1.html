@@ -76,11 +76,11 @@
                     <div>hi, {{ user.username }}&nbsp;</div>
                 <div class="dropdown text-end">
                         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> </a>
+                    <img src="{{ user.profile_img.url }}" alt="profile_img" width="32" height="32" class="rounded-circle"> </a>
                     <ul class="dropdown-menu text-small">
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">New post</a></li>
                         <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'user_update' %}">Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'user_logout' %}">Sign out</a></li>
                     </ul>
@@ -108,7 +108,7 @@
     (function () {
     const toggleButton = document.getElementById("theme-toggle")
 
-    // Function to set the theme on the html element
+    // Function to set the theme on the htm_l element
     function setTheme(theme) {
         document.documentElement.setAttribute('data-bs-theme', theme);
     }
@@ -144,5 +144,60 @@
             autoplay: false,
         }).mount();
     });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const csrftoken = getCookie('csrftoken');
+
+    document.querySelectorAll('.like-btn').forEach(button => {
+
+        button.addEventListener('click', function () {
+
+            const postId = this.dataset.id; // button 태그에 data-id="{{ post.id }}"
+
+            fetch(`/like/${postId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrftoken,
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                this.querySelector('.like-count').innerText = data.count;
+
+                if (data.liked) {
+                    this.classList.remove('btn-outline-danger');
+                    this.classList.add('btn-danger');
+                } else {
+                    this.classList.remove('btn-danger');
+                    this.classList.add('btn-outline-danger');
+                }
+
+            });
+
+        });
+
+    });
+
+});
+</script>
+<script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 </script>
 </html>

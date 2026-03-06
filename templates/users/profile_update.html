@@ -1,0 +1,141 @@
+{#{% extends 'base1.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <form method="POST" enctype="multipart/form-data" novalidate>#}
+{#        {% csrf_token %}#}
+{#        <h4>기본 정보 수정</h4>#}
+{#        {{ user_form.as_p }}#}
+{#        <hr />#}
+{#        <h4>비밀번호 변경</h4>#}
+{#        {{ pw_form.as_p }}#}
+{#        <input type="submit" value="Update" />#}
+{#    </form>#}
+{#{% endblock %}#}
+{##}
+
+
+{% extends 'base1.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-sm border-secondary" style="width: 500px;">
+
+        <div class="card-body p-4">
+
+            <h3 class="text-center fw-bold mb-4">Profile Update</h3>
+
+            <form method="POST"
+                  enctype="multipart/form-data"
+                  novalidate>
+
+                {% csrf_token %}
+
+                <!-- 기본 정보 -->
+                <h5 class="fw-semibold mb-3">Basic Information</h5>
+
+{#                <div class="mb-3 text-center">#}
+{#                    <label for="profileInput" style="cursor:pointer;">#}
+{#                        {% if user.profile_img %}#}
+{#                            <img src="{{ user.profile_img.url }}"#}
+{#                                 class="rounded-circle"#}
+{#                                 width="120">#}
+{#                        {% else %}#}
+{#                            <img src="/media/default.png"#}
+{#                                 class="rounded-circle"#}
+{#                                 width="120">#}
+{#                        {% endif %}#}
+{#                    </label>#}
+{#                    <input type="file"#}
+{#                           id="profileInput"#}
+{#                           name="profile_img"#}
+{#                           class="form-control"#}
+{#                           style="display:none">#}
+{#                </div>#}
+
+                <div class="mb-3 text-center">
+                    <label class="form-label">   <!-- 보안으로 file input 태그에는 value 표시 X -->
+                        {% if request.user.profile_img %}
+                    <div class="mb-3 text-center">
+                        <img src="{{ request.user.profile_img.url }}"
+                             class="rounded-circle" id="profilePreview" alt="profile image"
+                             style="width:150px; height:150px; object-fit:cover;">
+                    </div>
+                        {% else %}
+                          <div class="mb-3 text-center">
+                              <img src="/media/penguin_logo.png"
+                                   class="rounded-circle" id="profilePreview" alt="profile image"
+                                   style="width:150px; height:150px; object-fit:cover;">
+                          </div>
+                        {% endif %}
+                    <input type="file" id="profileInput" name="profile_img" class="form-control" style="display: none;" ></label>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    <label class="form-label">first_name:</label>
+                    <input type="text" name="first_name" class="form-control" value="{{ user_form.first_name.value }}">
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <label class="form-label">last_name:</label>
+                    <input type="text" name="last_name" class="form-control" value="{{ user_form.last_name.value }}">
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <label class="form-label">email:</label>
+                    <input type="text" name="email" class="form-control" value="{{ user_form.email.value }}">
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <label class="form-label">phone:</label>         <!-- user 객체로도 value 삽입 가능 -->
+                    <input type="text" name="phone" class="form-control" value="{{ user.phone }}">
+                </div>
+                <hr class="my-4"/>
+
+                <!-- 비밀번호 변경 -->
+                <h5 class="fw-semibold mb-3">Change Password</h5>
+
+                {% for field in pw_form %}
+                    <div class="mb-3">
+                        <label class="form-label">
+                            {{ field.label }}
+                        </label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger small mt-1">
+                                {{ field.errors.0 }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <!-- 버튼 영역 -->
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="/"
+                       class="btn btn-outline-secondary rounded-pill me-2">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                            class="btn btn-primary rounded-pill">
+                        Update
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+
+        {% if user_form.errors %}
+        <div class="alert alert-danger">
+            {{ user_form.errors }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    // profile image 수정 시, 즉각 반영
+    document.getElementById('profileInput').addEventListener('change', function(e){
+    const reader = new FileReader();
+    reader.onload = function(){
+        document.querySelector('#profilePreview').src = reader.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+</script>
+{% endblock %}

@@ -46,7 +46,7 @@ LOGGING = {
     "loggers": {
         "django": {
             "handlers": ["console", "file", "db"],
-            "level": "WARNING",
+            "level": "ERROR",
             "propagate": False,
         },
         "auth": {

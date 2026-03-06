@@ -8,9 +8,14 @@ class Post(models.Model):
     content = models.TextField()
     author = models.ForeignKey('users.User', on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
+    # likes 추가
+    likes = models.ManyToManyField('users.User', related_name='likes', blank=True)
 
     def __str__(self):
         return f'{self.id} - {self.title}'
+
+    def like_count(self):
+        return self.likes.count()
 
 
 

@@ -1,6 +1,8 @@
 import logging
 from operator import is_none
 
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 
@@ -95,7 +97,20 @@ def post_detail(request, id):
     return render(request, 'posts/post_detail.html', {'post': post})
 
 
-
+# likes 기능  (AJAX)
+@login_required
+def like_click(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.user in post.likes.all():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+    return JsonResponse({
+        'liked': liked,
+        'count': post.likes.count()
+                         })
 
 
 

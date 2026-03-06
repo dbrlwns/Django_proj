@@ -1,6 +1,7 @@
 from django import forms
 
 from users.models import User
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 
@@ -48,3 +49,17 @@ class RegisterForm(forms.ModelForm):
         user.set_password(self.cleaned_data['password1'])
         if commit: user.save()
         return user
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            'profile_img',
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+        )
+
+
+

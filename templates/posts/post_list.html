@@ -46,32 +46,49 @@
     <div class="masonry">
         {% for post in posts %}
       <div class="masonry-item">
-      <a href="{% url 'post_detail' id=post.id %}" style="text-decoration: none;">
         <div class="card p-1">
           <!-------------- image area using carousel ---------------->
         {% if post.images.first.image %}
-        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="{{ post.images.first.image.url }}" class="d-block w-100" alt="{{ post.title }}">
-            </div>
-            {% for image in post.images.all %}
-             <div class="carousel-item">
-                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ post.title }}">
-             </div>
-            {% endfor %}
+            <a href="{% url 'post_detail' id=post.id %}" style="text-decoration: none;">
+        <div id="carouselExampleSlidesOnly" class="carousel carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="{{ post.images.first.image.url }}" class="d-block w-100" alt="{{ post.title }}">
+                </div>
              </div>
             </div>
             {% else %}
             <img src="/media/penguin_logo.png" class="d-block w-100" alt="...">
+            </a>
         {% endif %}
                     <!-------------- image area using carousel 끝 ---------------->
           <div class="card-body">
-            <h5 class="card-title fw-bold">{{ post.title }} <small class="fs-6 fw-lighter text-body-secondary"> &nbsp;by {{ post.author }}</small></h5>
+            <a href="{% url 'post_detail' id=post.id %}" class="text-decoration-none" style="color: inherit;">
+              <h5 class="card-title fw-bold">{{ post.title }} <small class="fs-6 fw-lighter text-body-secondary"> &nbsp;by {{ post.author }}</small></h5>
               <hr />
+            </a>
+          <div class="d-flex justify-content-between">
+          <a href="{% url 'post_detail' id=post.id %}" class="text-decoration-none" style="color: inherit;">
             <p class="card-text">{{ post.content | linebreaksbr | truncatewords:10 }}</p>
+          </a>
+            <!--------------- 좋아요 기능 ---------------->
+              <div class="mx-3">
+                  {% if request.user in post.likes.all %}
+                    <button type="button" class="btn btn-danger like-btn"
+                            data-id="{{ post.id }}">
+                      ❤️&nbsp;<span class="like-count">{{ post.like_count }}</span>
+                    </button>
+                      {% else %}
+                      <button type="button" class="btn btn-outline-danger like-btn "
+                            data-id="{{ post.id }}">
+                      ❤️&nbsp;<span class="like-count">{{ post.like_count }}</span>
+                      </button>
+                  {% endif %}
+              </div>
+          <!--------------- 좋아요 기능 끝 ---------------->
           </div>
-        </div></a>
+          </div>
+        </div>
       </div>
     {% endfor %}
     </div>
@@ -90,52 +107,3 @@
 
 
 
-
-<!--
-    {% for post in posts %}
-    <div style="border: 1px solid black;">
-        <h4>{{ post.title }}</h4> <small>user: {{ post.author }}</small>
-        <p>{{ post.content | linebreaksbr }}</p>
-        {% if post.images.first.image %}
-            {% for image in post.images.all %}
-            <img src="{{ image.image.url }}" alt="{{ post.title }}" width="400">
-            {% endfor %}
-        {% else %}
-            <p style="color: lightgray">No images</p>
-        {% endif %}
-        {% if request.user == post.author %}
-            <form method="POST" action="del_post/{{ post.id }}/">
-            {% csrf_token %}
-            <input type="submit" value="Delete">
-            </form>
-            <form method="POST" action="update_post/{{ post.id }}/">
-            {% csrf_token %}
-            <input type="submit" value="Update">
-            </form>
-
-        {% endif %}
-
-        <div class="comment">
-            <form method="POST" action="add_comment/{{ post.id }}/">
-                {% csrf_token %}
-                <label><input type="text" name="comment_content" placeholder="write comment" /></label>
-                <input type="submit" value="Submit">
-            </form>
-            <ul>
-            {% for comment in post.comments.all %}
-                <li>
-                    <p>{{ comment.author }} - {{ comment.content }}</p>
-                {% if comment.author == request.user %}
-                    <form method="POST" action="del_comment/{{ comment.id }}/">
-                    {% csrf_token %}
-                    <input type="submit" value="Del">
-                    </form>
-                {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-    </div>
-    {% endfor %}
-
--->

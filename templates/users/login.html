@@ -44,6 +44,15 @@
                     </form>
 
                 </div>
+                {% if messages %}   <!-- view에서 messages.error로 에러  -->
+                    {% for message in messages %}
+                        {% if forloop.last %}   <!-- forloop.last로 마지막 하나만 출력 -->
+                        <div class="alert alert-danger alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
 
         </div>
